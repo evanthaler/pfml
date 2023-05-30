@@ -4,14 +4,13 @@ import os,glob,pickle
 import numpy as np
 from sklearn import svm,metrics
 from sklearn.model_selection import train_test_split,cross_val_score
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier,ExtraTreesClassifier
-from sklearn.neural_network import MLPClassifier
-from sklearn.gaussian_process.kernels import ConstantKernel, RBF,RationalQuadratic
+#from sklearn.gaussian_process import GaussianProcessClassifier
+from sklearn.ensemble import ExtraTreesClassifier #RandomForestClassifier,AdaBoostClassifier
+#from sklearn.gaussian_process.kernels import ConstantKernel, RBF,RationalQuadratic
 import matplotlib.pyplot as plt
 from sklearn.inspection import permutation_importance
 import matplotlib as mpl
-from sklearn.preprocessing import QuantileTransformer
+from sklearn.preprocessing import StandardScaler
 mpl.rcParams.update({'font.size': 16})
 os.environ['PROJ_LIB'] = r'C:\Users\361045\Anaconda3\envs\pygeo\Library\share\proj'
 os.environ['GDAL_DATA'] = r'C:\Users\361045\Anaconda3\envs\pygeo\Library\share'
@@ -81,7 +80,7 @@ def MLClassify(wd,outras,trainCSV,modelName,veg,method='ERF',predict_full=True,s
     rows = tif.RasterYSize
     
     ##need to standardize data to be format ready for RBF kernel for SVM and gaussian processes
-    scaler = QuantileTransformer(output_distribution='normal')
+    scaler = StandardScaler()
 
     
     ###
