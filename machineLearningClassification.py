@@ -32,7 +32,7 @@ def MLClassify(wd,outras,trainCSV,modelName,veg,method='ERF',predict_full=True,s
         name of pickeled model. the method string will be appended to the model name
     method : string, optional
         Classification method for prediction. 'ERF' = Extra random forest; 'SVM' = support vector machine; 
-        'GPC' = gaussian processes; 'ADA' = adaptive boost 
+        ##These have been removed:'GPC' = gaussian processes; 'ADA' = adaptive boost 
         The default is 'ERF'.
         THe algorithm abbreviation will be appended to the outras string
     veg = : string
@@ -300,31 +300,29 @@ for s in sitelist:
 
 
 '''
-Parameters
-----------
-wd : string
-    Full path to directory where input rasters are stored
-outras : string
-    path and name of output prediction raster
-trainCSV: string
-    Full path to csv file with training data. This file will have data from each of the rasters in the wd
-modelName : string
-    name of pickeled model. the method string will be appended to the model name
-method : string, optional
-    Classification method for prediction. 'ERF' = Extra random forest; 'SVM' = support vector machine; 
-    'GPC' = gaussian processes; 'ADA' = adaptive boost 
-    The default is 'ERF'.
-    THe algorithm abbreviation will be appended to the outras string
-predict_full:boolean
-    Predict permafrost extent for full raster domain. default=True
-scale: boolean
-    Standardize data? default is True
-useAllData: boolean
-    Use all training data? Default is true
+ wd : string
+        Full path to directory where input rasters are stored
+    outras : string
+        path and name of output prediction raster
+    trainCSV: string
+        Full path to csv file with training data. This file will have data from each of the rasters in the wd
+    modelName : string
+        name of pickeled model. the method string will be appended to the model name
+    method : string, optional
+        Classification method for prediction. 'ERF' = Extra random forest; 'SVM' = support vector machine; 
+        ##These have been removed:'GPC' = gaussian processes; 'ADA' = adaptive boost 
+        The default is 'ERF'.
+        THe algorithm abbreviation will be appended to the outras string
+    veg = : string
+        which veg ifeature to use. 'chm' or 'ndvi'
 
-Returns
--------
-None.
+    predict_full:boolean
+        Predict permafrost extent for full raster domain. default=True
+    scale: boolean
+        Standarize (normalize) data?
+    useAllData: boolean
+        Use all available data for model training?
+
 
 '''
 
